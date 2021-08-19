@@ -9,10 +9,14 @@ const app = express();
 
 conectarDB();
 
+//Habilitar express.json
+app.use(express.json({extended:true}));
+
 //Asignado el puerto de la app
 const PORT = process.env.PORT || 4000;
 
-
+//Importar las rutas
+app.use('/api/usuarios', require('./routes/usuarios'));
 
 //Arrancando la app
 
