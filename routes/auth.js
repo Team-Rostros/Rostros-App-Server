@@ -21,7 +21,7 @@ router.post('/',
 //Obtener el usuario autenticado
 router.get('/',
     auth,
-    authController.autenticarUsuario
+    authController.usuarioAutenticado
 )
 
 module.exports = router;
