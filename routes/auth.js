@@ -11,10 +11,6 @@ const {check} = require('express-validator');
 // api/auth
 
 router.post('/', 
-    [
-        check('email', 'Agrega un email válido').isEmail(),
-        check('password', 'La contraseña debe tener minimo 6 caracteres').isLength({min: 6}),
-    ],
     authController.autenticarUsuario
 );
 
