@@ -10,9 +10,12 @@ const app = express();
 
 conectarDB();
 
+//Habilitar Cors
+app.use(cors());
+
 //Habilitar express.json
 app.use(express.json({extended:true}));
-app.use(cors());
+
 
 //Asignado el puerto de la app
 const PORT = process.env.PORT || 4000;
@@ -24,6 +27,7 @@ app.use('/api/auth', require('./routes/auth'));
 // -- Ubicación
 app.use('/api/pais', require('./routes/pais'));
 app.use('/api/ciudad', require('./routes/ciudad'));
+
 //Arrancando la app
 
 app.listen(PORT, ()=>{
