@@ -1,4 +1,6 @@
 //Importar el modelo usuario
+
+//Rama Duvan
 const Usuario = require('../models/Usuario');
 const bcryptjs = require('bcryptjs');
 const {validationResult} = require('express-validator');
