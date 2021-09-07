@@ -80,7 +80,7 @@ exports.remove = (req, res) => {
 
 exports.desaparecidoId = (req, res, next) => {
     Desaparecido.findById(req.params.desaparecidoId)
-        .populate("desaparecido")
+        .populate("desaparecidos")
         .exec((err, desaparecido) => {
             if (err || !desaparecido) {
                 return res.status(400).json({
@@ -94,9 +94,9 @@ exports.desaparecidoId = (req, res, next) => {
 }
 
 exports.photo = (req, res, next) => {
-    if (req.desaparecidos.photo.data) {
-        res.set('Content-Type', req.desaparecidos.photo.contentType);
-        return res.send(req.desaparecidos.photo.data)
+    if (req.desaparecido.photo.data) {
+        res.set('Content-Type', req.desaparecido.photo.contentType);
+        return res.send(req.desaparecido.photo.data)
     }
     next();
 }

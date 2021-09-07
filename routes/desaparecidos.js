@@ -12,6 +12,10 @@ router.post('/create', desaparecidosController.create);
 
 router.get('/list', desaparecidosController.list);
 
+router.get('/photo/:desaparecidoId', desaparecidosController.photo);
+
+router.param('desaparecidoId', desaparecidosController.desaparecidoId);
+
 module.exports = router;
 
 /*
