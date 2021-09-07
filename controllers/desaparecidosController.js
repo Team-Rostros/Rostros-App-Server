@@ -84,7 +84,7 @@ exports.desaparecidoId = (req, res, next) => {
         .exec((err, desaparecido) => {
             if (err || !desaparecido) {
                 return res.status(400).json({
-                    error: errorHandler(error)
+                    error: 'No se encontró el desaparecido'
                 });
             }
 
