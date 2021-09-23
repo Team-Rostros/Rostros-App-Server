@@ -3,7 +3,6 @@ const Usuario = require('../models/Usuario');
 const bcryptjs = require('bcryptjs');
 const {validationResult} = require('express-validator');
 const jwt = require('jsonwebtoken');
-const { restart } = require('nodemon');
 
 
 exports.autenticarUsuario = async(req, res) =>{
