@@ -153,6 +153,10 @@ const DesaparecidosSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Usuario',
         require:true,
+    },
+    encontrada: {
+        type: Number,
+        default: 0
     }
 });
 
