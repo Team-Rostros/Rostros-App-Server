@@ -53,7 +53,7 @@ exports.list = (req, res) => {
 
     Desaparecido.find().select('-photo')
         .populate('desaparecido')
-        .sort([[sortBy, order]])
+        .sort([[sortBy, order, ]])
         .exec((err, items) => {
             if (err) {
                 return res.status(400).json({
