@@ -24,6 +24,7 @@ app.use('/api/usuarios', require('./routes/usuarios'));
 app.use('/api/auth', require('./routes/auth'));
 
 app.use('/api/desaparecido', require('./routes/desaparecidos'));
+app.use('/api/comentarios', require('./routes/comentarios'));
 //Arrancando la app
 
 app.listen(PORT, ()=>{

@@ -23,4 +23,10 @@ router.post('/',
     usuarioController.crearUsuario
 );
 
+router.put('/recuperar',[
+    check('email', 'Agrega un email válido').isEmail(),
+    check('password', 'La contraseña debe tener minimo 6 caracteres').isLength({min: 6}),
+    ] ,usuarioController.recuperarContrasena
+);
+
 module.exports = router;

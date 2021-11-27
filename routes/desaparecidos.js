@@ -12,7 +12,17 @@ router.post('/create', desaparecidosController.create);
 
 router.get('/list', desaparecidosController.list);
 
+router.get('/list/:creador', desaparecidosController.porCreador);
+
 router.get('/photo/:desaparecidoId', desaparecidosController.photo);
+
+router.get('/:desaparecidoId', desaparecidosController.findId);
+
+router.put('/update', desaparecidosController.update);
+
+router.put('/estado/:id', desaparecidosController.marcarEncontrado);
+
+router.delete('/:desaparecidoId', desaparecidosController.remove);
 
 router.param('desaparecidoId', desaparecidosController.desaparecidoId);
 

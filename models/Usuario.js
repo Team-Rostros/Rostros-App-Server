@@ -51,6 +51,10 @@ const UsuariosSchema = mongoose.Schema({
     registro:{
         type:Date,
         default:Date.now()
+    },
+    is_admin:{
+        type: Boolean,
+        default: false
     }
 });
 
