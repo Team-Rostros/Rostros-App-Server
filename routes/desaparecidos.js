@@ -22,6 +22,8 @@ router.put('/update', desaparecidosController.update);
 
 router.put('/estado/:id', desaparecidosController.marcarEncontrado);
 
+router.delete('/:desaparecidoId', desaparecidosController.remove);
+
 router.param('desaparecidoId', desaparecidosController.desaparecidoId);
 
 module.exports = router;

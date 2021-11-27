@@ -46,7 +46,6 @@ exports.list = (req, res) => {
     let sortBy = req.query.sortBy ? req.query.sortBy : 'name';
 
     Desaparecido.find({ 'encontrada': 0 }).select('-photo')
-        .populate('desaparecido')
         .sort([[sortBy, order,]])
         .exec((err, items) => {
             if (err) {
