@@ -4,7 +4,8 @@
   "description": "Servidor de Rostros App",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "author": "Alejandro Perdomo",
   "license": "ISC",
