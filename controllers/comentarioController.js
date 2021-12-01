@@ -17,7 +17,7 @@ exports.create = (req, res) => {
 exports.list = (req, res) => {
     Comentarios.find().
     populate('creador', 'nombre apellido').
-    populate('desaparecido', 'nombre1 apellido1', Desaparecido).
+    populate('desaparecido', '_id nombre1 apellido1', Desaparecido).
     exec((err, data) => {
 
         if (err) return res.status(400).json({
