@@ -4,6 +4,7 @@ const Desaparecido = require('../models/Desaparecido');
 
 exports.create = (req, res) => {
     const comentarios = new Comentarios(req.body);
+    console.log(comentarios);
     comentarios.save((err, data) => {
         if (err) return res.status(400).json({
             error: 'error'
@@ -42,17 +43,19 @@ exports.remove = (req, res) => {
 }
 
 exports.comentarioId = (req, res, next) => {
+    
     Comentarios.findById(req.params.comentarioId)
-        .exec((err, comentario) => {
-            if (err || !comentario) {
-                return res.status(400).json({
-                    error: errorHandler(error)
-                });
-            }
+    populate('creador', 'nombre apellido').
+    exec((err, comentario) => {
+        if (err || !comentario) {
+            return res.status(400).json({
+                error: errorHandler(error)
+            });
+        }
 
-            req.comentario = comentario;
-            next();
-        });
+        req.comentario = comentario;
+        next();
+    });
 }
 
 exports.porDesaparecido  = (req,res) => {
@@ -67,3 +70,24 @@ exports.porDesaparecido  = (req,res) => {
         res.json(data);
     });
 }
+
+/*exports.comentarioList = (req, res) {
+    Libro.find({}, function (err, libros) {
+      Autor.populate(libros, { path: "autor" }, function (err, libros) {
+        res.status(200).send(libros);
+      });
+    });
+}*/
+
+/*exports.comentariosLists = (req, res) => {
+    Comentarios.find().
+    populate('creador').
+    exec((err, data) => {
+
+        if (err) return res.status(400).json({
+            error: 'No se pueden listar'
+        });
+
+        res.json(data);
+    });
+}*/

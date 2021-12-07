@@ -27,6 +27,11 @@ const UsuariosSchema = mongoose.Schema({
         required:true,
         trim:true
     },
+    departamento:{
+        type:String,
+        required:true,
+        trim:true
+    },
     ciudad:{
         type:String,
         required:true,

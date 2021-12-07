@@ -10,6 +10,7 @@ const comentarioController = require('../controllers/comentarioController');
 router.post('/create', comentarioController.create);
 router.get('/list/:desaparecido', comentarioController.porDesaparecido);
 router.get('/list', comentarioController.list);
+//router.get('/comentariosLists', comentarioController.comentariosLists);
 router.delete('/:comentarioId', comentarioController.remove);
 
 router.param('comentarioId', comentarioController.comentarioId);
