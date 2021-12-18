@@ -31,6 +31,7 @@ exports.list = (req, res) => {
 
 exports.remove = (req, res) => {
     let comentario = req.comentario;
+    console.log(comentario);
     comentario.remove((err, deleteComentario) => {
         if (err) {
             return res.status(400).json({
@@ -44,7 +45,7 @@ exports.remove = (req, res) => {
 
 exports.comentarioId = (req, res, next) => {
     
-    Comentarios.findById(req.params.comentarioId)
+    Comentarios.findById(req.params.comentarioId).
     populate('creador', 'nombre apellido').
     exec((err, comentario) => {
         if (err || !comentario) {
@@ -59,8 +60,9 @@ exports.comentarioId = (req, res, next) => {
 }
 
 exports.porDesaparecido  = (req,res) => {
-    Comentarios.find({'desaparecido':req.params.desaparecido})
-    .exec((err,data) => {
+    Comentarios.find({'desaparecido':req.params.desaparecido}).
+    populate('creador', 'nombre apellido').
+    exec((err,data) => {
         if(err){
             return res.status(400).json({
                 error: 'Comentario no encontrado'
